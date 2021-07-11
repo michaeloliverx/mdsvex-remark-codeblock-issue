@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.svx": "markdown",
+    "tsconfig.json": "jsonc"
+  }
+}

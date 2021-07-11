@@ -1,0 +1,39 @@
+# Hello, World
+
+```py
+import os
+
+print(os.environ)
+```
+
+```tsx twoslash
+import axios from "axios";
+import { useQuery } from "react-query";
+
+import type { UseQueryResult } from "react-query";
+
+type Todo = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
+function useTodos(): UseQueryResult<Todo[], Error> {
+  return useQuery({
+    queryKey: "groups",
+    queryFn: async () => {
+      const { data } = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      return data;
+    },
+  });
+}
+
+export function Todos() {
+  const { data } = useTodos();
+  if (!data) return null;
+  return <div>{data}</div>;
+}
+```
